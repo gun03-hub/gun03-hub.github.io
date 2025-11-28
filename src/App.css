@@ -1,0 +1,121 @@
+@font-face {
+  font-family: "Roboto_slab";
+  src: local("Roboto_slab"),
+    url(./fonts/Roboto_slab/RobotoSlab-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Gilda_display";
+  src: local("Gilda_display"),
+    url(./fonts/Gilda_display/GildaDisplay-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto_slab";
+  font-weight: 900;
+  src: local("Roboto_slab"),
+    url(./fonts/Roboto_slab/RobotoSlab-Bold.ttf) format("truetype");
+}
+
+.name {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-weight: 600;
+}
+
+.head {
+  font-family: 'Poppins', system-ui, sans-serif;
+}
+
+.nav {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 500;
+}
+
+.para {
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.8;
+}
+
+.cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  mix-blend-mode: screen;
+  z-index: 9999;
+  transition: width 0.2s ease, height 0.2s ease;
+}
+
+.cursor::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #0a0f1a 0%, #0f172a 25%, #1e293b 50%, #0f172a 75%, #0a0f1a 100%);
+}
+
+.floating-shapes {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.floating-shapes::before,
+.floating-shapes::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+}
+
+.floating-shapes::before {
+  width: 600px;
+  height: 600px;
+  background: #3b82f6;
+  top: -200px;
+  right: -200px;
+  animation: float 20s ease-in-out infinite;
+}
+
+.floating-shapes::after {
+  width: 500px;
+  height: 500px;
+  background: #8b5cf6;
+  bottom: -150px;
+  left: -150px;
+  animation: float 25s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(50px, -50px) rotate(120deg);
+  }
+  66% {
+    transform: translate(-30px, 30px) rotate(240deg);
+  }
+}
