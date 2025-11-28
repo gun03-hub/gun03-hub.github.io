@@ -1,16 +1,15 @@
 export default function BarGraph({ name, percent }) {
   return (
     <div className="flex flex-col">
-      <div className="flex flex-row justify-between w-3/4 px-6 text-lg ">
-        <h2>{name}</h2>
-        <h2>{percent}%</h2>
+      <div className="flex flex-row justify-between w-full md:w-3/4 px-2 md:px-6 text-base md:text-lg text-white">
+        <h2 className="font-medium">{name}</h2>
+        <h2 className="font-semibold">{percent}%</h2>
       </div>
       <div
-        class="w-3/4 bg-neutral-200 h-2.5
-     rounded-3xl"
+        className="w-full md:w-3/4 bg-white/10 backdrop-blur-sm h-3 rounded-full mt-2"
       >
         <div
-          class="bg-blue-600 h-2.5 text-center  font-medium leading-none text-black rounded-3xl"
+          className="bg-gradient-to-r from-blue-400 to-blue-600 h-3 text-center font-medium leading-none rounded-full transition-all duration-500"
           style={{ width: `${percent}%` }}
         />
       </div>

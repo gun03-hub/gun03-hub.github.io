@@ -1,71 +1,56 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import "../App.css";
-
-export default function Layout({ children }) {
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  useEffect(() => {
-    const checkDevice = () => {
-      const hasHover = window.matchMedia('(hover: hover)').matches;
-      const isLargeScreen = window.innerWidth >= 1024;
-      setIsDesktop(hasHover && isLargeScreen);
-    };
-
-    checkDevice();
-    window.addEventListener('resize', checkDevice);
-
-    return () => window.removeEventListener('resize', checkDevice);
-  }, []);
-
-  useEffect(() => {
-    if (!isDesktop) return;
-
+class Layout extends React.Component {
+  componentDidMount = () => {
     const cursor = document.querySelector(".cursor");
-    if (!cursor) return;
-    
-    const handleMouseMove = (e) => {
+    const audio = new Audio(
+      require("../assets/audio/mixkit-fast-double-click-on-mouse-275.mp3")
+    );
+
+    window.addEventListener("mousemove", (e) => {
       cursor.style.left = e.clientX + "px";
       cursor.style.top = e.clientY + "px";
-    };
-
-    const handleMouseDown = () => {
-      cursor.style.height = "30px";
-      cursor.style.width = "30px";
-    };
-
-    const handleMouseUp = () => {
-      cursor.style.height = "20px";
-      cursor.style.width = "20px";
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mousedown", handleMouseDown);
-    window.addEventListener("mouseup", handleMouseUp);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mousedown", handleMouseDown);
-      window.removeEventListener("mouseup", handleMouseUp);
-    };
-  }, [isDesktop]);
-
-  useEffect(() => {
-    Aos.init({ 
-      duration: 800,
-      once: true,
-      easing: 'ease-out-cubic'
     });
-  }, []);
 
-  return (
-    <div className="min-h-screen gradient-bg bg-grid relative overflow-x-hidden">
-      <div className="floating-shapes" />
-      <div className="relative z-10">
-        {children}
-      </div>
-      {isDesktop && <div className="cursor" />}
-    </div>
-  );
+    window.addEventListener("mousedown", (event) => {
+      cursor.style.height = "35px";
+      cursor.style.width = "35px";
+      audio.play();
+    });
+
+    window.addEventListener("mouseup", (event) => {
+      cursor.style.height = "23px";
+      cursor.style.width = "23px";
+    });
+
+    const options = { 
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 100,
+      delay: 0,
+      anchorPlacement: 'top-bottom'
+    };
+    Aos.init(options);
+    
+    // Refresh AOS on scroll for better performance
+    window.addEventListener('scroll', () => {
+      Aos.refresh();
+    });
+  };
+  render() {
+    return (
+      <React.Fragment>
+        <div class="page" style={{ background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%)', minHeight: '100vh' }}>
+          <div className="flex flex-row overflow-hidden">
+            {this.props.children}
+          </div>
+          <div class="cursor"></div>
+        </div>
+      </React.Fragment>
+    );
+  }
 }
+export default Layout;

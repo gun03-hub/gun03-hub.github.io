@@ -1,100 +1,70 @@
-# 🌐 Personal Portfolio Website
+# Getting Started with Create React App
 
-This is my personal **developer portfolio website**, showcasing my background, skills, certifications, and projects. Built to reflect my personality and technical stack, it's a one-stop place to get to know me professionally.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-![Portfolio Screenshot](src/assets/images/portfolio.jpg)
+## Available Scripts
 
----
+In the project directory, you can run:
 
-## 🧑‍💻 About the Website
+### `npm start`
 
-A fully responsive modern portfolio created using **React.js**, featuring:
-- Clean sidebar navigation
-- Smooth scroll and animations
-- Sectioned layout: About Me, Resume, Projects, Contact
-- CV download button
-- GitHub & LinkedIn integration
-- Tech stack progress bars
-- Project cards with tech tags
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
----
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-## 🚀 Tech Stack
+### `npm test`
 
-| Category     | Tech Used                          |
-|--------------|------------------------------------|
-| **Frontend** | React.js, Tailwind CSS             |
-| **Design**   | Custom CSS, Icons (FontAwesome)    |
-| **Hosting**  | GitHub Pages / Vercel (suggested)  |
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
----
+### `npm run build`
 
-## 🗂️ Sections Breakdown
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-### 🔹 **Welcome**
-- Intro with typing animation
-- Contact Me CTA button
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### 🔹 **About Me**
-- Brief intro with CV download option
-- Tech stack highlights
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### 🔹 **Resume**
-- Certificates with download links
-- Skill bars (React, AI, SQL, etc.)
+### `npm run eject`
 
-### 🔹 **Projects**
-- Project cards with stack tags
-- Highlighted projects like:
-  - `HotelBook`
-  - `My-Shop`
-  - `Money-Mind`
-  - `Event-Planner`
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-### 🔹 **Contact**
-- Basic contact form (Name, Email, Message)
-- Social links (GitHub, LinkedIn)
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
----
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-## 🧪 How to Run Locally
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-```bash
-git clone https://github.com/gun03-hub/Portfolio.git
-cd Portfolio
-npm install
-npm start
-```
+## Learn More
 
-The app will run on [http://localhost:3000](http://localhost:3000)
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
----
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-## 🎯 Future Improvements
+### Code Splitting
 
-- Add dark/light theme toggle
-- Improve accessibility (ARIA labels, keyboard nav)
-- Integrate email service (like EmailJS) for contact form
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
----
+### Analyzing the Bundle Size
 
-## 📌 Live Preview
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-🚀 [View Live Site](https://gunjanarora.netlify.app/#/) 
-📄 [Download Resume (PDF)](src/assets/files/Resume.pdf)
+### Making a Progressive Web App
 
----
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-## 🙋‍♀️ Author
+### Advanced Configuration
 
-**Gunjan Arora**  
-🖥️ 2nd Yr CS Student @ University of Delhi  
-🌐 [LinkedIn](https://www.linkedin.com/in/gunjan-arora-4248462a9/) | 💻 [GitHub](https://github.com/gun03-hub)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
----
+### Deployment
 
-## 📄 License
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-This project is open-source and available under the [MIT License](LICENSE).
+### `npm run build` fails to minify
 
-> Designed with ❤️ and deployed to show my work to the world.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

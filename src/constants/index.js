@@ -1,54 +1,3 @@
-export const experiences = [
-  {
-    role: "Web Developer",
-    company: "SPIE - The International Society",
-    location: "Delhi, India",
-    period: "Jan 2024 – Present",
-    type: "current",
-    highlights: [
-      "Developed dynamic web applications using React.js",
-      "Enhanced user experience and functionality, improving engagement by 15%",
-      "Collaborated with cross-functional teams to deliver high-quality solutions"
-    ]
-  },
-  {
-    role: "Artificial Intelligence Intern",
-    company: "Codec Technologies",
-    location: "India",
-    period: "Jan 2025 – Feb 2025",
-    type: "internship",
-    highlights: [
-      "Developed AI-powered applications using machine learning and deep learning techniques",
-      "Implemented natural language processing (NLP) algorithms to enhance user interaction",
-      "Improved model accuracy and efficiency, contributing to a 15% performance boost"
-    ]
-  },
-  {
-    role: "Tech Lead",
-    company: "Book with UVA",
-    location: "Delhi, India",
-    period: "Aug 2024 – Feb 2025",
-    type: "leadership",
-    highlights: [
-      "Led web application development with modern technologies",
-      "Enhanced usability and performance, resulting in a 20% increase in user satisfaction",
-      "Mentored team members and coordinated project deliverables"
-    ]
-  },
-  {
-    role: "Web Developer",
-    company: "CodSoft",
-    location: "Delhi, India",
-    period: "May 2024 – Jun 2024",
-    type: "internship",
-    highlights: [
-      "Created robust web solutions using React.js and Node.js",
-      "Optimized performance and user engagement, increasing conversion rates by 10%",
-      "Delivered projects on time with high-quality code standards"
-    ]
-  }
-];
-
 export const projects = [
   {
     title: "HotelBook",
@@ -72,6 +21,7 @@ export const projects = [
       },
     ],
     img: "hotel-book.png",
+    link: "https://book-hotel-now.netlify.app/",
     code: "https://github.com/gun03-hub/Hotel-Book",
   },
   {
@@ -112,7 +62,7 @@ export const projects = [
       },
     ],
     img: "money-mind.png",
-    link: "https://github.com/hach54/money-mind-app",
+    link: "https://money-mind39.netlify.app/",
     code: "https://github.com/hach54/money-mind-app",
   },
   {
@@ -129,8 +79,7 @@ export const projects = [
       },
     ],
     img: "event-planner.webp",
-    link: "https://pvz-2-api.vercel.app/",
-    code: "https://github.com/code-cracked/plants-vs-zombies-api",
+    code: "https://github.com/gun03-hub/Event-Planner",
   },
   {
     title: "Photo-Gallery",
@@ -155,7 +104,7 @@ export const projects = [
     ],
     img: "Photos.webp",
     link: "",
-    code: "https://github.com/gun03-hub/web-chat-app",
+    code: "https://github.com/gun03-hub/Photo-Gallery-Project",
   },
   {
     title: "Code-Snippet-Manager",
@@ -180,52 +129,6 @@ export const projects = [
     ],
     img: "Code-Snippet-Manager.webp",
     link: "",
-    code: "https://github.com/gun03-hub/EXPLOITER",
+    code: "https://github.com/gun03-hub/Code-Snippet-Manager",
   },
-  {
-    title: "Stock Market",
-    desc: "Stock Market Website done with ReactJs as Frontend and Express as Backend. This websites gives practice for people those who want to start using stock market. It is based on realtime update of stock value.",
-    tags: [
-      {
-        name: "ReactJs",
-        color: "red-600",
-      },
-      {
-        name: "ExpressJs",
-        color: "green-600",
-      },
-      {
-        name: "MongoDB",
-        color: "blue-800",
-      },
-    ],
-    img: "stockmarket.webp",
-    link: "",
-    code: "https://github.com/gun03-hub/Stock-Market",
-  },
-  {
-    title: "Cash-Calculator",
-    desc: "Developed a Cash Calculator application using React.js, offering an intuitive interface for efficient cash transactions and financial calculations. With support for multiple currencies and detailed summaries, it ensures a seamless user experience across all devices.",
-    tags: [
-      {
-        name: "NextJs",
-        color: "red-600",
-      },
-      {
-        name: "MaterialUI",
-        color: "green-600",
-      },
-      {
-        name: "ExpressJs",
-        color: "yellow-600",
-      },
-      {
-        name: "FireBase",
-        color: "blue-800",
-      },
-    ],
-    img: "Cash-Calculator.webp",
-    link: "",
-    code: "https://github.com/gun03-hub/Cash-Collector  ",
-  },  
 ];

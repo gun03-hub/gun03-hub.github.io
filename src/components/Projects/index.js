@@ -1,52 +1,61 @@
 import Work from "./work";
 import { projects } from "../../constants";
+import { FaGithub } from "react-icons/fa";
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-12 xs:py-16 md:py-24 relative">
-      <div className="max-w-7xl mx-auto px-4 xs:px-6">
-        <div className="text-center mb-10 xs:mb-12 md:mb-16" data-aos="fade-up">
-          <h2 className="section-heading mb-3 xs:mb-4">Featured Projects</h2>
-          <p className="section-subheading mx-auto">
-            A showcase of my recent work and personal projects
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-6 md:gap-8">
-          {projects.slice(0, 6).map((project, index) => (
+    <div
+      id="projects"
+      className="min-h-screen flex flex-col justify-center text-center gap-8 md:gap-10 px-4 py-12 md:py-16"
+    >
+      <div
+        className="font-extrabold py-5 mt-6 md:mt-10 text-4xl md:text-5xl text-white"
+        data-aos="fade-down"
+        data-aos-duration="600"
+        data-aos-easing="ease-out-cubic"
+      >
+        Projects
+      </div>
+      <div className="flex flex-wrap flex-row justify-center w-full p-2 md:p-4 gap-6 md:gap-8 lg:gap-12 max-w-7xl mx-auto">
+        {projects.map((project, ind) => {
+          return (
             <div
-              key={index}
+              key={ind}
               data-aos="fade-up"
-              data-aos-delay={index * 100}
+              data-aos-offset="150"
+              data-aos-delay={ind * 100}
+              data-aos-duration="800"
+              data-aos-easing="ease-out-cubic"
+              className="w-full sm:w-[calc(50%-1rem)] lg:w-auto"
             >
               <Work
                 title={project.title}
                 desc={project.desc}
                 img={require(`../../assets/images/${project.img}`)}
-                link={project.link}
                 code={project.code}
                 tags={project.tags}
               />
             </div>
-          ))}
-        </div>
-
-        {projects.length > 6 && (
-          <div className="text-center mt-8 xs:mt-10 md:mt-12" data-aos="fade-up">
-            <a
-              href="https://github.com/gun03-hub"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-outline btn-ripple inline-flex items-center gap-2 group"
-            >
-              View More on GitHub
-              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </a>
-          </div>
-        )}
+          );
+        })}
       </div>
-    </section>
+      <div 
+        className="flex justify-center pb-10 mt-8"
+        data-aos="fade-up"
+        data-aos-offset="100"
+        data-aos-duration="800"
+        data-aos-easing="ease-out-cubic"
+      >
+        <a
+          href="https://github.com/gun03-hub"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 px-6 py-3 text-base md:text-lg font-semibold text-white bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg hover:bg-white/20 transition-colors duration-300"
+        >
+          <FaGithub className="text-xl md:text-2xl" />
+          View More Projects
+        </a>
+      </div>
+    </div>
   );
 }

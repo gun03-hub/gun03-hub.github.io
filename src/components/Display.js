@@ -1,22 +1,32 @@
 import "../App.css";
-import Navigation from "./Navigation";
 import Home from "./Home";
 import About from "./About";
 import Resume from "./Resume";
 import Projects from "./Projects";
 import Contact from "./Contact";
-import ScrollToTop from "./ScrollToTop";
+import Blog from "./Blog";
 
 export default function Display() {
   return (
-    <div className="w-full text-white">
-      <Navigation />
-      <Home />
-      <About />
-      <Resume />
-      <Projects />
-      <Contact />
-      <ScrollToTop />
+    <div className="lg:pl-[25%] pt-16 lg:pt-0 w-screen back text-white">
+      <section id="home-section">
+        <Home />
+      </section>
+      <section id="about-section">
+        <About />
+      </section>
+      <section id="resume-section">
+        <Resume />
+      </section>
+      <section id="projects-section">
+        <Projects />
+      </section>
+      <section id="blog-section">
+        <Blog />
+      </section>
+      <section id="contact-section">
+        <Contact />
+      </section>
     </div>
   );
 }

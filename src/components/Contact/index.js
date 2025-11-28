@@ -1,11 +1,6 @@
-import EmailIcon from "@mui/icons-material/Email";
-import PersonIcon from "@mui/icons-material/Person";
-import MessageIcon from "@mui/icons-material/Message";
-import SendIcon from "@mui/icons-material/Send";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
+import { HiMail, HiUser, HiCheckCircle } from "react-icons/hi";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { MdCopyright } from "react-icons/md";
 import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,14 +9,13 @@ import { useState } from "react";
 export default function Contact() {
   const [mailSent, setMailSent] = useState(false);
   const [loading, setLoading] = useState(false);
-
   const handleSubmit = (e) => {
     setLoading(true);
     e.preventDefault();
     const { username, email, message } = e.target.elements;
     const serviceID = "service_o5p03wh";
-    const templateID = "template_sbkicq7";
-    const publicKey = "mWRmgxXmF0YMIkh2o";
+    const templateID = "template_sbkicq7"; // update with your template ID
+    const publicKey = "mWRmgxXmF0YMIkh2o"; 
 
     const templateParams = {
       username: username.value,
@@ -30,262 +24,221 @@ export default function Contact() {
     };
 
     emailjs
-      .send(serviceID, templateID, templateParams, publicKey)
+      .send(
+        serviceID,
+        templateID,
+        templateParams,
+        publicKey
+      )
       .then(
         (response) => {
           setMailSent(true);
           setLoading(false);
-          toast.success("Message sent successfully! I'll get back to you soon.", {
+          toast.success("Message Sent Successfully!", {
             position: "bottom-center",
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
-            theme: "dark",
+            progress: undefined,
+            theme: "colored",
           });
+          console.log("SUCCESS!", response.status, response.text);
         },
         (err) => {
           setLoading(false);
-          toast.error("Something went wrong. Please try again.", {
+          toast.error("Error occured!", {
             position: "bottom-center",
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
-            theme: "dark",
+            progress: undefined,
+            theme: "colored",
           });
+          console.log("FAILED...", err);
         }
       );
   };
-
-  const contactInfo = [
-    {
-      icon: <EmailIcon />,
-      label: "Email",
-      value: "gunjan.arora@example.com",
-      link: "mailto:gunjan.arora@example.com",
-    },
-    {
-      icon: <LocationOnIcon />,
-      label: "Location",
-      value: "Delhi, India",
-      link: null,
-    },
-  ];
-
-  const socialLinks = [
-    {
-      icon: <GitHubIcon />,
-      label: "GitHub",
-      link: "https://github.com/gun03-hub",
-    },
-    {
-      icon: <LinkedInIcon />,
-      label: "LinkedIn",
-      link: "https://www.linkedin.com/in/gunjan-arora-4248462a9/",
-    },
-  ];
-
   return (
-    <section id="contact" className="py-12 xs:py-16 md:py-24 relative">
-      <div className="max-w-7xl mx-auto px-4 xs:px-6">
-        <div className="text-center mb-10 xs:mb-12 md:mb-16" data-aos="fade-up">
-          <h2 className="section-heading mb-3 xs:mb-4">Get In Touch</h2>
-          <p className="section-subheading mx-auto">
-            Have a project in mind or want to collaborate? Let's talk!
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-6 xs:gap-8 lg:gap-12 items-start">
-          <div data-aos="fade-right">
-            <div className="glass-card p-5 xs:p-6 md:p-8">
-              <h3 className="text-xl xs:text-2xl font-display font-bold text-white mb-4 xs:mb-6">
-                Send Me a Message
-              </h3>
-
-              {!mailSent ? (
-                <form onSubmit={handleSubmit} className="space-y-4 xs:space-y-6">
-                  <div>
-                    <label className="block text-dark-300 text-xs xs:text-sm font-medium mb-1.5 xs:mb-2">
-                      Your Name
-                    </label>
-                    <div className="relative">
-                      <PersonIcon className="absolute left-3 xs:left-4 top-1/2 -translate-y-1/2 text-dark-500 text-lg xs:text-xl" />
-                      <input
-                        id="username"
-                        name="username"
-                        type="text"
-                        required
-                        placeholder="John Doe"
-                        className="w-full pl-10 xs:pl-12 pr-4 py-2.5 xs:py-3 bg-dark-800 border border-dark-600 rounded-lg xs:rounded-xl text-white text-sm xs:text-base placeholder-dark-500 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-dark-300 text-xs xs:text-sm font-medium mb-1.5 xs:mb-2">
-                      Email Address
-                    </label>
-                    <div className="relative">
-                      <EmailIcon className="absolute left-3 xs:left-4 top-1/2 -translate-y-1/2 text-dark-500 text-lg xs:text-xl" />
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        required
-                        placeholder="john@example.com"
-                        className="w-full pl-10 xs:pl-12 pr-4 py-2.5 xs:py-3 bg-dark-800 border border-dark-600 rounded-lg xs:rounded-xl text-white text-sm xs:text-base placeholder-dark-500 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-dark-300 text-xs xs:text-sm font-medium mb-1.5 xs:mb-2">
-                      Your Message
-                    </label>
-                    <div className="relative">
-                      <MessageIcon className="absolute left-3 xs:left-4 top-3 xs:top-4 text-dark-500 text-lg xs:text-xl" />
-                      <textarea
-                        id="message"
-                        name="message"
-                        required
-                        minLength={10}
-                        rows="4"
-                        placeholder="Tell me about your project..."
-                        className="w-full pl-10 xs:pl-12 pr-4 py-2.5 xs:py-3 bg-dark-800 border border-dark-600 rounded-lg xs:rounded-xl text-white text-sm xs:text-base placeholder-dark-500 focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all resize-none"
-                      />
-                    </div>
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {loading ? (
-                      <>
-                        <svg className="animate-spin h-4 w-4 xs:h-5 xs:w-5" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                        </svg>
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <SendIcon className="text-lg xs:text-xl" />
-                        Send Message
-                      </>
-                    )}
-                  </button>
-                </form>
-              ) : (
-                <div className="text-center py-8 xs:py-12">
-                  <div className="w-16 h-16 xs:w-20 xs:h-20 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-4 xs:mb-6">
-                    <CheckCircleIcon className="text-4xl xs:text-5xl text-green-500" />
-                  </div>
-                  <h4 className="text-lg xs:text-xl font-semibold text-white mb-2">
-                    Message Sent Successfully!
-                  </h4>
-                  <p className="text-dark-400 text-sm xs:text-base">
-                    Thank you for reaching out. I'll get back to you soon.
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className="space-y-4 xs:space-y-6 lg:space-y-8" data-aos="fade-left">
-            <div className="glass-card p-5 xs:p-6 md:p-8">
-              <h3 className="text-xl xs:text-2xl font-display font-bold text-white mb-4 xs:mb-6">
-                Contact Information
-              </h3>
-              
-              <div className="space-y-3 xs:space-y-4">
-                {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-center gap-3 xs:gap-4">
-                    <div className="w-10 h-10 xs:w-12 xs:h-12 rounded-lg xs:rounded-xl bg-primary-500/20 flex items-center justify-center text-primary-400 flex-shrink-0">
-                      <span className="text-lg xs:text-xl">{info.icon}</span>
-                    </div>
-                    <div className="min-w-0">
-                      <div className="text-xs xs:text-sm text-dark-400">{info.label}</div>
-                      {info.link ? (
-                        <a
-                          href={info.link}
-                          className="text-sm xs:text-base text-white hover:text-primary-400 transition-colors break-all"
-                        >
-                          {info.value}
-                        </a>
-                      ) : (
-                        <div className="text-sm xs:text-base text-white">{info.value}</div>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="glass-card p-5 xs:p-6 md:p-8">
-              <h3 className="text-lg xs:text-xl font-display font-bold text-white mb-4 xs:mb-6">
-                Connect With Me
-              </h3>
-              
-              <div className="flex gap-3 xs:gap-4">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-11 h-11 xs:w-12 xs:h-12 rounded-lg xs:rounded-xl bg-dark-700 border border-dark-600 flex items-center justify-center text-dark-300 hover:bg-primary-500 hover:border-primary-500 hover:text-white transition-all touch-manipulation active:scale-95"
-                    title={social.label}
-                    aria-label={social.label}
-                  >
-                    <span className="text-xl xs:text-2xl">{social.icon}</span>
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            <div className="glass-card p-5 xs:p-6 md:p-8 bg-gradient-to-br from-primary-600/20 to-accent-purple/20">
-              <h3 className="text-lg xs:text-xl font-display font-bold text-white mb-3 xs:mb-4">
-                Let's Build Something Amazing
-              </h3>
-              <p className="text-dark-300 text-sm xs:text-base mb-4 xs:mb-6">
-                I'm currently available for freelance work and exciting opportunities. 
-                If you have a project that needs expertise, let's discuss it!
-              </p>
-              <a
-                href={require("../../assets/files/Resume.pdf")}
-                download="Gunjan_Arora_Resume"
-                className="btn-outline inline-flex items-center gap-2"
-              >
-                Download Resume
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-10 xs:mt-12 md:mt-16 pt-6 xs:pt-8 border-t border-dark-800 text-center" data-aos="fade-up">
-          <p className="text-dark-400 text-xs xs:text-sm">
-            &copy; {new Date().getFullYear()} Gunjan Arora. All rights reserved.
-          </p>
-        </div>
+    <div
+      id="contact"
+      className="flex text-center flex-col gap-8 md:gap-12 my-8 md:my-10 min-h-screen px-4 overflow-hidden"
+    >
+      <div 
+        className="text-4xl md:text-5xl font-bold text-white" 
+        data-aos="fade-down"
+        data-aos-duration="600"
+        data-aos-easing="ease-out-cubic"
+      >
+        Contact
       </div>
-
-      <ToastContainer
-        position="bottom-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
-    </section>
+      <div className="flex items-center justify-center flex-col md:flex-row gap-8 max-w-7xl mx-auto w-full">
+        <div 
+          className="glass-card glass-card-strong flex-auto md:w-32 sm:pl-0 overflow-visible p-6 md:p-8"
+          data-aos="fade-right"
+          data-aos-offset="150"
+          data-aos-duration="800"
+          data-aos-easing="ease-out-cubic"
+        >
+          <form className="ml-0 md:ml-2" onSubmit={handleSubmit}>
+            <label class="block mb-4 text-xl md:text-2xl font-semibold mt-2 text-white">
+              Get in Touch
+            </label>
+            <hr className="border-white/30 border-2 w-1/3 mx-auto mb-6" />
+            <div class="flex pt-4 md:pt-6">
+              <span class="inline-flex items-center px-3 text-sm border border-r-0 rounded-l-lg glass-input text-white">
+                <HiUser />
+              </span>
+              <input
+                disabled={mailSent}
+                readOnly={mailSent}
+                id="username"
+                required
+                type="text"
+                class="glass-input rounded-none rounded-r-lg border block flex-1 min-w-[170px] max-w-[320px] text-sm p-2.5 placeholder-gray-300 focus:ring-2 focus:ring-blue-400/50"
+                placeholder="Name"
+              />
+            </div>
+            <div class="flex pt-4 md:pt-6">
+              <span class="inline-flex items-center px-3 text-sm border border-r-0 rounded-l-lg glass-input text-white">
+                <HiMail />
+              </span>
+              <input
+                disabled={mailSent}
+                readOnly={mailSent}
+                id="email"
+                required
+                minLength={5}
+                type="email"
+                class="glass-input rounded-none rounded-r-lg border block flex-1 min-w-[170px] w-full max-w-[320px] text-sm p-2.5 placeholder-gray-300 focus:ring-2 focus:ring-blue-400/50"
+                placeholder="Email"
+              />
+            </div>
+            <textarea
+              id="message"
+              disabled={mailSent}
+              readOnly={mailSent}
+              rows="4"
+              required
+              minLength={10}
+              placeholder="Write your message here..."
+              class="glass-input block h-40 text-white mt-6 md:mt-8 p-2.5 min-w-[215px] max-w-[365px] w-full text-sm rounded-lg resize-none focus:ring-2 focus:ring-blue-400/50"
+            ></textarea>
+            <button
+              title="Send message"
+              type="submit"
+              className={`${
+                mailSent === false && loading === false? "" : "hidden"
+              } mt-6 md:mt-7 py-2 px-4 rounded-lg 
+              bg-blue-500/30 backdrop-blur-sm border border-blue-400 text-white hover:bg-blue-500/40 hover:border-blue-300 focus:ring-2 focus:ring-blue-400/50 font-semibold flex items-center gap-2
+              `}
+            >
+              <HiMail /> Send Message
+            </button>
+            <button
+              disabled
+              type="button"
+              className={`text-white ${
+                loading === true? "visible" : "hidden"
+              } disabled font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 bg-blue-500/30 backdrop-blur-sm border border-blue-400 inline-flex items-center mt-5`}
+            >
+              <svg
+                aria-hidden="true"
+                role="status"
+                class="inline w-4 h-4 mr-3 text-white animate-spin"
+                viewBox="0 0 100 101"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                  fill="#E5E7EB"
+                />
+                <path
+                  d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                  fill="currentColor"
+                />
+              </svg>
+              Sending...
+            </button>
+            <button
+              type="button"
+              disable={"true"}
+              className={`bg-green-500/30 backdrop-blur-sm border border-green-400 text-white hover:bg-green-500/40 focus:ring-2 focus:ring-green-400/50 ${
+                mailSent === true && loading === false? "visible" : "hidden"
+              } cursor-default mt-6 md:mt-7 py-2 px-4 rounded-lg flex items-center gap-2 font-semibold`}
+            >
+              <HiCheckCircle /> Message Sent
+            </button>
+          </form>
+        </div>
+        <div 
+          className="glass-card glass-card-strong flex-auto w-full md:w-80 flex flex-col justify-center text-center items-center gap-4 p-6 md:p-8"
+          data-aos="fade-left"
+          data-aos-offset="150"
+          data-aos-duration="800"
+          data-aos-easing="ease-out-cubic"
+        >
+        <div
+            className="w-[180px]  md:w-[290px] lg:w-[350px] hidden md:block"
+          >
+            <lottie-player
+              autoplay
+              loop
+              mode="bounce"
+              src="https://assets9.lottiefiles.com/packages/lf20_3rqwsqnj.json"
+              // style={{ width: "80%" }}
+            />
+          </div>
+          <div className="text-center mt-4 md:mt-6">
+            <div className="text-center mt-2 text-2xl md:text-3xl font-bold text-white">
+              Follow Me
+            </div>
+            <div className="text-white flex flex-row gap-7 w-fit mx-auto pt-4">
+              <div
+                title="Github"
+                onClick={() =>
+                  window.open("https://github.com/gun03-hub", "_blank")
+                }
+              >
+                <FaGithub className="cursor-pointer hover:scale-105 text-2xl" />
+              </div>
+              <div
+                title="Linkedin"
+                onClick={() =>
+                  window.open(
+                    "https://www.linkedin.com/in/gunjan-arora-4248462a9/",
+                    "_blank"
+                  )
+                }
+              >
+                {" "}
+                <FaLinkedin className="cursor-pointer hover:scale-105 text-2xl" />
+              </div>
+            </div>
+            <div className="mt-6 italic text-sm font-medium text-blue-300">
+              <span className="pl-1">Copyright</span>
+              <MdCopyright className="cursor-pointer mx-1 inline" />
+              <span>2025 Gunjan Arora</span>
+            </div>
+          </div>
+        </div>
+        <ToastContainer
+          position="bottom-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+        />
+      </div>
+    </div>
   );
 }

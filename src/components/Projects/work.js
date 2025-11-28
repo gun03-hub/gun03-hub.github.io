@@ -1,76 +1,55 @@
 import Tilt from "react-parallax-tilt";
-import LaunchIcon from "@mui/icons-material/Launch";
-import GitHubIcon from "@mui/icons-material/GitHub";
 
-export default function Work({ title, desc, tags, link, code, img }) {
-  const isTouchDevice = typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
-  
+export default function work({ title, desc, tags, code, img }) {
   return (
     <Tilt
-      tiltMaxAngleX={isTouchDevice ? 0 : 5}
-      tiltMaxAngleY={isTouchDevice ? 0 : 5}
-      scale={isTouchDevice ? 1 : 1.02}
-      transitionSpeed={300}
-      className="h-full"
+      options={{
+        max: 45,
+        scale: 1,
+        speed: 450,
+      }}
+      className="glass-card glass-card-strong rounded-2xl w-full sm:max-w-[362px] h-full p-[2px] transition-all duration-500 hover:scale-[1.02]"
     >
-      <div className="project-card h-full flex flex-col">
-        <div className="relative overflow-hidden group/image">
-          <img
-            src={img}
-            alt={title}
-            className="w-full h-40 xs:h-44 sm:h-48 md:h-52 object-cover transition-transform duration-500 group-hover/image:scale-110"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/50 to-transparent opacity-100 sm:opacity-0 group-hover/image:opacity-100 transition-opacity duration-300" />
-          
-          <div className="absolute top-3 xs:top-4 right-3 xs:right-4 flex gap-2 opacity-100 sm:opacity-0 group-hover/image:opacity-100 transition-all duration-300 sm:transform sm:translate-y-2 sm:group-hover/image:translate-y-0">
-            {link && (
-              <button
-                onClick={() => window.open(link, "_blank")}
-                className="w-9 h-9 xs:w-10 xs:h-10 rounded-lg bg-dark-800/90 backdrop-blur-sm border border-dark-600 flex items-center justify-center text-white hover:bg-primary-500 hover:border-primary-500 transition-all touch-manipulation active:scale-95"
-                title="Visit Site"
-                aria-label="Visit project site"
-              >
-                <LaunchIcon className="text-base xs:text-lg" />
-              </button>
-            )}
-            {code && (
-              <button
+      <div className="bg-white/5 backdrop-blur-sm w-full h-full rounded-2xl p-4 md:p-6 flex flex-col justify-between transition-all duration-300">
+        <div>
+          <div className="relative w-full rounded-2xl">
+            <img
+              src={img}
+              alt={title}
+              className="w-full h-[150px] sm:h-[200px] rounded-[10px] object-cover border-[1px] border-secondary"
+            />
+            <div className="absolute inset-0 flex justify-end m-3 ">
+              <div
                 onClick={() => window.open(code, "_blank")}
-                className="w-9 h-9 xs:w-10 xs:h-10 rounded-lg bg-dark-800/90 backdrop-blur-sm border border-dark-600 flex items-center justify-center text-white hover:bg-primary-500 hover:border-primary-500 transition-all touch-manipulation active:scale-95"
-                title="View Code"
-                aria-label="View project code"
+                className="glass-card w-9 h-9 rounded-full border-[1px] border-white/20 flex items-center justify-center cursor-pointer hover:bg-white/20 transition-colors"
               >
-                <GitHubIcon className="text-base xs:text-lg" />
-              </button>
-            )}
+                <img
+                  src={require("../../assets/images/github.webp")}
+                  alt={"github"}
+                  className="w-3/5 h-3/5 lg:w-4/5 lg:h-4/5 object-contain"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="mt-5">
+            <h3 className="text-white font-bold text-[18px] sm:text-[20px] lg:text-[24px]">
+              {title}
+            </h3>
+            <p className="mt-2 text-gray-200 text-[12px] sm:text-[14px] lg:text-[16px]">
+              {desc}
+            </p>
           </div>
         </div>
 
-        <div className="p-4 xs:p-5 md:p-6 flex flex-col flex-1">
-          <h3 className="text-base xs:text-lg md:text-xl font-display font-bold text-white mb-2 xs:mb-3 group-hover:text-primary-400 transition-colors">
-            {title}
-          </h3>
-          
-          <p className="text-dark-400 text-xs xs:text-sm leading-relaxed mb-3 xs:mb-4 flex-1 line-clamp-2 xs:line-clamp-3">
-            {desc.length > 120 ? `${desc.substring(0, 120)}...` : desc}
-          </p>
-
-          <div className="flex flex-wrap gap-1.5 xs:gap-2 mt-auto pt-3 xs:pt-4 border-t border-dark-700">
-            {tags.slice(0, 3).map((tag, index) => (
-              <span
-                key={index}
-                className="px-2 xs:px-2.5 py-0.5 xs:py-1 text-[10px] xs:text-xs font-medium rounded-md bg-dark-700/50 text-dark-200 border border-dark-600"
-              >
-                {tag.name}
-              </span>
-            ))}
-            {tags.length > 3 && (
-              <span className="px-2 xs:px-2.5 py-0.5 xs:py-1 text-[10px] xs:text-xs font-medium rounded-md bg-dark-700/50 text-dark-300 border border-dark-600">
-                +{tags.length - 3}
-              </span>
-            )}
-          </div>
+        <div className="mt-4 flex flex-wrap gap-2 text-[10px] lg:text-[14px]">
+          {tags.map((tag) => (
+            <p
+              key={tag.name}
+              className="font-medium text-white py-1 px-2 bg-white/10 backdrop-blur-sm rounded-md border border-white/20"
+            >
+              {tag.name}
+            </p>
+          ))}
         </div>
       </div>
     </Tilt>

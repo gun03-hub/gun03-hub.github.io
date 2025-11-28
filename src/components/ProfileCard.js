@@ -1,18 +1,21 @@
-import { DarkModeSharp } from "@mui/icons-material"; //idle
+import { MdDarkMode } from "react-icons/md";
 
 export default function ProfileCard() {
   return (
     <div>
       <div className="relative">
-        <img
-          src={require("../assets/images/profile-pic.png")}
-          alt="Gunjan Arora"
-          className="rounded-full border-solid cursor-pointer  border-[6px]  border-neutral-800 shadow-md  min-h-fit mx-auto  max-w-[190px]"
-        />
-
-        <DarkModeSharp className="bottom-2 bg-neutral-800 outline-neutral-800  left-3 ml-[55%] outline outline-4 w-28 h-28 rounded-full  absolute text-yellow-500 " />
+        <div className="glass-card rounded-full p-1 inline-block">
+          <img
+            src={require("../assets/images/profile-pic.png")}
+            alt="Gunjan Arora"
+            className="rounded-full border-solid cursor-pointer border-[4px] border-white/30 shadow-md min-h-fit mx-auto max-w-[190px]"
+          />
+        </div>
+        <div className="glass-card bottom-2 left-3 ml-[55%] w-28 h-28 rounded-full absolute flex items-center justify-center">
+          <MdDarkMode className="text-yellow-400 text-2xl" />
+        </div>
       </div>
-      <h3 className="text-white name py-4 font-medium ">Gunjan Arora</h3>
+      <h3 className="text-white name py-4 font-medium">Gunjan Arora</h3>
     </div>
   );
 }
