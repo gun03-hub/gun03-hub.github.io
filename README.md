@@ -1,70 +1,141 @@
-# Getting Started with Create React App
+# 🚀 Gunjan Arora – Developer Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive personal portfolio website showcasing my experience, projects, certifications, and technical expertise as a Full Stack Developer.
 
-## Available Scripts
+🔗 Live Site: [https://gunjanarora.netlify.app](https://gunjanarora.netlify.app)
+📌 Built to highlight real-world projects, internships, and technical skills.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 📌 Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This portfolio is designed to:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Present my professional experience and internships
+* Showcase featured projects with tech stack details
+* Highlight certifications and technical expertise
+* Provide an easy way to contact me
+* Maintain clean UI/UX with a modern dark theme
 
-### `npm test`
+The design focuses on clarity, performance, and structured information hierarchy.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🛠 Tech Stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Frontend**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* React.js
+* JavaScript (ES6+)
+* HTML5
+* CSS3
+* Tailwind CSS
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Other Tools**
 
-### `npm run eject`
+* Git & GitHub
+* Netlify (Deployment)
+* Responsive Design Principles
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## ✨ Features
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* 🔹 Modern dark UI with gradient styling
+* 🔹 Fully responsive (desktop-first optimized)
+* 🔹 Career timeline section
+* 🔹 Certifications showcase
+* 🔹 Featured projects grid
+* 🔹 Contact form section
+* 🔹 Clean component-based architecture
+* 🔹 Performance-optimized layout
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 📂 Project Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+/src
+  /components
+  /assets
+  /pages
+  App.js
+  main.js
+/public
+package.json
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Structured for scalability and easy maintenance.
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📊 Sections Included
 
-### Analyzing the Bundle Size
+* Hero Section
+* About Me
+* Career Overview (Experience Timeline)
+* Education
+* Tech Stack
+* Certifications
+* Featured Projects
+* Contact Section
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## ⚡ Installation & Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+If you want to run this locally:
 
-### Advanced Configuration
+```bash
+# Clone the repository
+git clone https://github.com/your-username/portfolio.git
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# Navigate into project
+cd portfolio
 
-### Deployment
+# Install dependencies
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+# Start development server
+npm run dev
+```
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🚀 Deployment
+
+Deployed using **Netlify**
+
+To deploy:
+
+* Push to GitHub
+* Connect repository to Netlify
+* Enable continuous deployment
+
+---
+
+## 📈 Optimization Goals
+
+* Lighthouse score 90+
+* Clean semantic HTML
+* Reusable React components
+* Minimal re-renders
+* Organized folder structure
+
+---
+
+## 📬 Contact
+
+**Gunjan Arora**
+📍 Delhi, India
+📧 [4518gunjanarora@gmail.com](mailto:4518gunjanarora@gmail.com)
+🔗 LinkedIn: [https://linkedin.com/in/gunjan-arora-4248462a9](https://linkedin.com/in/gunjan-arora-4248462a9)
+💻 GitHub: [https://github.com/gun03-hub](https://github.com/gun03-hub)
+
+---
+
+## 📄 License
+
+This project is open-source and available under the MIT License.
+* Rewrite it more technical (for devs reviewing code)
+* Or make it brutally optimized for GitHub discoverability (SEO-focused README)
